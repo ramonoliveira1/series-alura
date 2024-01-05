@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::table('episodes', function (Blueprint $table) {
-            $table->boolean('watched');
+            $table->boolean('watched')->default(false);
         });
     }
 

@@ -32,6 +32,15 @@ Route::middleware('autenticador')->group(function () {
     Route::post('/seasons/{season}/episodes', [EpisodesController::class, 'watch'])->name('episodes.index');
 });
 
+Route::get('/email', function () {
+    return new \App\Mail\SeriesCreated(
+        'Série de teste',
+        1,
+        5,
+        10,
+    );
+});
+
 Route::get('/login', [LoginController::class, 'index'])->name('login');
 Route::post('/login', [LoginController::class, 'login'])->name('signin');
 Route::get('/logout', [LoginController::class, 'logout'])->name('logout');
